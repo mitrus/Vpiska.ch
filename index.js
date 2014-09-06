@@ -8,7 +8,8 @@ function startServer(route) {
     host     : config.db_config.db_host,
     port     : config.db_config.db_port,
     user     : config.db_config.user_name,
-    password : config.db_config.password
+    password : config.db_config.password,
+    database : config.db_config.database
   });
   connection.connect(function(err) {
     if (err) {
