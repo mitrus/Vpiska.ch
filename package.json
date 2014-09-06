@@ -1,0 +1,7 @@
+{
+    "name": "Vpiska.ch",
+    "version": "0.0.1",
+    "dependencies": {
+        "node-mysql": "2.4.3"
+    }
+}
