@@ -9,7 +9,7 @@ var specialHandlers = {
     }
 };
 
-function route(request, response) {
+function route(request, response, connection) {
     var pathName = url.parse(request.url).pathname.substring(1); // without first "/"
     
     if (pathName in specialHandlers) {
