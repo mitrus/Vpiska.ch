@@ -19,7 +19,7 @@ function startServer(route) {
       route(request, response, connection);
     }
 
-    http.createServer(onRequest).listen(config.httpPort);
+    http.createServer(onRequest).listen(config.http_port);
     console.log("Server has started, " + (new Date().toString()));
   });
 

@@ -1,7 +1,7 @@
 var url = require("url");
 var fs = require("fs");
 
-var specialHandlers = {
+var specialApiHandlers = {
   testHandler: function(request, response, connection) {
     var randomId = Math.floor(Math.random() * 100000);
     connection.query("INSERT INTO `USER_INFO` SET `vk_id`=" + randomId + ", " + "`token`='token_test'", function(err) {
@@ -17,8 +17,8 @@ var specialHandlers = {
 
 function route(request, response, connection) {
   var pathName = url.parse(request.url).pathname.substring(1); // without first "/"
-  if (pathName in specialHandlers) {
-    specialHandlers[pathName](request, response, connection);
+  if (pathName.length >= 4 && pathName.substr(0, 4) == 'api/' && pathName.substr(4) in specialApiHandlers) {
+    specialApiHandlers[pathName.substr(4)](request, response, connection);
   } else {
     notFound(request, response, connection);
   }
