@@ -12,6 +12,13 @@ var specialApiHandlers = {
       response.write("testHandler in <i>action</i>\t" + randomId);
       response.end();
     });
+  },
+  addParty: function(request, response, connection) {
+    var query = url.parse(request.url, true).query;
+    if (!("name" in query) || !/^[а-я]$/.test(query.name)) {
+      return false;
+    }
+    //connection.query("INSERT INTO `parties` SET");
   }
 };
 
